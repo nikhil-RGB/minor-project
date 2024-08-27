@@ -18,7 +18,7 @@ import 'dart:io' show Platform;
 import 'package:hive/hive.dart';
 
 Targets target = MyApp.detectPlatform();
-void main() async {
+void main1() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 

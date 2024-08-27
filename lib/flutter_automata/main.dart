@@ -17,7 +17,7 @@ const int ressurection = 3;
 const Point dimensions = Point(22, 22);
 const int alives = 150;
 
-void main() {
+void main0() {
   // Step 2
   WidgetsFlutterBinding.ensureInitialized();
   // Step 3
