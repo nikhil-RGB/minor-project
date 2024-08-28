@@ -121,12 +121,12 @@ class _InitializationPageState extends State<InitializationPage> {
                     "Generate Encryption Keys[EXPERIMENTAL]",
                     style: GoogleFonts.sourceCodePro(color: Colors.white),
                   )),
-              PopupMenuItem(
-                  value: 5,
-                  child: Text(
-                    "About us",
-                    style: GoogleFonts.sourceCodePro(color: Colors.white),
-                  )),
+              // PopupMenuItem(
+              //     value: 5,
+              //     child: Text(
+              //       "About us",
+              //       style: GoogleFonts.sourceCodePro(color: Colors.white),
+              //     )),
               PopupMenuItem(
                   value: 3,
                   child: Text(
@@ -189,12 +189,12 @@ class _InitializationPageState extends State<InitializationPage> {
                             ress: widget.ress))));
               }
               break;
-            case 5:
-              {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => AboutUs())));
-              }
-              break;
+            // case 5:
+            //   {
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: ((context) => AboutUs())));
+            //   }
+            //   break;
           }
         },
         child: const Icon(

@@ -24,6 +24,7 @@ class WelcomeScreen extends StatelessWidget {
       },
       child: SafeArea(
           child: Scaffold(
+        backgroundColor: Colors.black,
         // appBar: AppBar(
         //   title: Text("Welcome!"),
         // ),
@@ -34,11 +35,15 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               const Text(
                 "Turing Machines",
-                style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.cyanAccent),
               ),
               const Gap(100),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyanAccent),
                   onPressed: () {
                     TuringMachine machine = StandardMachines.emptyMachine();
                     Navigator.of(context)
@@ -59,7 +64,8 @@ class WelcomeScreen extends StatelessWidget {
                   )),
               Gap((platform == Targets.ANDROID) ? 20 : 35),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyanAccent),
                   onPressed: () {
                     TuringMachine machine = StandardMachines.defaultMachine();
                     Navigator.of(context)
@@ -80,7 +86,8 @@ class WelcomeScreen extends StatelessWidget {
                   )),
               Gap((platform == Targets.ANDROID) ? 20 : 35),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyanAccent),
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {

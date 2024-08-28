@@ -61,7 +61,7 @@ class WelcomePage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0, left: 12.0),
               child: IconButton(
                 onPressed: () {
-                  SystemNavigator.pop();
+                  Navigator.of(context).pop();
                 },
                 icon: const Icon(Icons.exit_to_app_outlined),
                 color: Colors.cyan,
