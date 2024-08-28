@@ -19,14 +19,14 @@ import 'package:hive/hive.dart';
 
 Targets target = MyApp.detectPlatform();
 void main1() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Hive.initFlutter();
 
-  Hive.registerAdapter(BehaviourAdapter());
-  Hive.registerAdapter(ConfigurationAdapter());
-  Hive.registerAdapter(ActionsAdapter());
-  Hive.registerAdapter(ActionTypeAdapter());
-  Hive.registerAdapter(TuringMachineModelAdapter());
+  // Hive.registerAdapter(BehaviourAdapter());
+  // Hive.registerAdapter(ConfigurationAdapter());
+  // Hive.registerAdapter(ActionsAdapter());
+  // Hive.registerAdapter(ActionTypeAdapter());
+  // Hive.registerAdapter(TuringMachineModelAdapter());
   // await Hive.deleteBoxFromDisk("turing_machines");
   await Hive.openBox<TuringMachineModel>("turing_machines");
 

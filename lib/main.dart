@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:minor_project/flutter_automata/main.dart';
 import 'package:minor_project/turing_machines/main.dart';
+import 'package:minor_project/turing_machines/models/Actions.dart';
+import 'package:minor_project/turing_machines/models/Behaviour.dart';
+import 'package:minor_project/turing_machines/models/Configuration.dart';
+import 'package:minor_project/turing_machines/models/TuringMachineModel.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(BehaviourAdapter());
+  Hive.registerAdapter(ConfigurationAdapter());
+  Hive.registerAdapter(ActionsAdapter());
+  Hive.registerAdapter(ActionTypeAdapter());
+  Hive.registerAdapter(TuringMachineModelAdapter());
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
   // This widget is the root of your application.
   @override

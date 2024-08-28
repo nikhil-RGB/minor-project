@@ -7,6 +7,7 @@ import 'package:minor_project/flutter_automata/pages/InitializationPage.dart';
 import 'package:minor_project/flutter_automata/util/DialogManager.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minor_project/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -43,124 +44,131 @@ class WelcomePage extends StatelessWidget {
       required this.ress});
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: Padding(
-            padding: const EdgeInsets.only(top: 10.0, left: 12.0),
-            child: IconButton(
-              onPressed: () {
-                SystemNavigator.pop();
-              },
-              icon: const Icon(Icons.exit_to_app_outlined),
-              color: Colors.cyan,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        runApp(const MainApp());
+      },
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.black,
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            leading: Padding(
+              padding: const EdgeInsets.only(top: 10.0, left: 12.0),
+              child: IconButton(
+                onPressed: () {
+                  SystemNavigator.pop();
+                },
+                icon: const Icon(Icons.exit_to_app_outlined),
+                color: Colors.cyan,
+              ),
             ),
           ),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-                padding: const EdgeInsets.only(right: 7, left: 7),
-                // child: Text(
-                //   welcomeMessage,
-                //   style: TextStyle(color: Colors.cyan, fontSize: 17),
-                //   textAlign: TextAlign.center,
-                // ),
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: mssg1,
-                        style: GoogleFonts.sourceCodePro(
-                          color: Colors.cyan,
-                          fontSize: 17,
-                        ),
-                      ),
-                      TextSpan(
-                          text: hyperlink1,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                  padding: const EdgeInsets.only(right: 7, left: 7),
+                  // child: Text(
+                  //   welcomeMessage,
+                  //   style: TextStyle(color: Colors.cyan, fontSize: 17),
+                  //   textAlign: TextAlign.center,
+                  // ),
+                  child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: mssg1,
                           style: GoogleFonts.sourceCodePro(
+                            color: Colors.cyan,
+                            fontSize: 17,
+                          ),
+                        ),
+                        TextSpan(
+                            text: hyperlink1,
+                            style: GoogleFonts.sourceCodePro(
+                              color: Colors.transparent,
+                              shadows: [
+                                const Shadow(
+                                    offset: Offset(0, -1),
+                                    color: Colors.cyanAccent)
+                              ],
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.cyanAccent,
+                              fontSize: 17,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                launchURL(CAinfo, context);
+                              }),
+                        TextSpan(
+                          text: mssg2,
+                          style: GoogleFonts.sourceCodePro(
+                            color: Colors.cyan,
+                            fontSize: 17,
+                          ),
+                        ),
+                        TextSpan(
+                          text: hyperlink2,
+                          style: GoogleFonts.sourceCodePro(
+                            decoration: TextDecoration.underline,
                             color: Colors.transparent,
                             shadows: [
                               const Shadow(
                                   offset: Offset(0, -1),
                                   color: Colors.cyanAccent)
                             ],
-                            decoration: TextDecoration.underline,
                             decorationColor: Colors.cyanAccent,
                             fontSize: 17,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              launchURL(CAinfo, context);
-                            }),
-                      TextSpan(
-                        text: mssg2,
-                        style: GoogleFonts.sourceCodePro(
-                          color: Colors.cyan,
-                          fontSize: 17,
+                              launchURL(GOLinfo, context);
+                            },
                         ),
-                      ),
-                      TextSpan(
-                        text: hyperlink2,
-                        style: GoogleFonts.sourceCodePro(
-                          decoration: TextDecoration.underline,
-                          color: Colors.transparent,
-                          shadows: [
-                            const Shadow(
-                                offset: Offset(0, -1), color: Colors.cyanAccent)
-                          ],
-                          decorationColor: Colors.cyanAccent,
-                          fontSize: 17,
+                        TextSpan(
+                          text: mssg3,
+                          style: GoogleFonts.sourceCodePro(
+                            color: Colors.cyan,
+                            fontSize: 17,
+                          ),
                         ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            launchURL(GOLinfo, context);
-                          },
-                      ),
-                      TextSpan(
-                        text: mssg3,
-                        style: GoogleFonts.sourceCodePro(
-                          color: Colors.cyan,
-                          fontSize: 17,
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.071,
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                List input = await DialogManager.openInitializeGridDialog(
-                    context: context,
-                    maxRows: maxRows,
-                    minRows: minRows,
-                    maxColumns: maxCols,
-                    minColumns: minCols);
-                if (input.isEmpty) {
-                  return;
-                }
+                      ],
+                    ),
+                  )),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.071,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  List input = await DialogManager.openInitializeGridDialog(
+                      context: context,
+                      maxRows: maxRows,
+                      minRows: minRows,
+                      maxColumns: maxCols,
+                      minColumns: minCols);
+                  if (input.isEmpty) {
+                    return;
+                  }
 
-                // ignore: use_build_context_synchronously
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => InitializationPage(
-                            input[0], input[1],
-                            ub: ub, lb: lb, ress: ress))));
-              },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
-              child: const Text("Proceed"),
-            ),
-          ],
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => InitializationPage(
+                              input[0], input[1],
+                              ub: ub, lb: lb, ress: ress))));
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
+                child: const Text("Proceed"),
+              ),
+            ],
+          ),
         ),
       ),
     );
