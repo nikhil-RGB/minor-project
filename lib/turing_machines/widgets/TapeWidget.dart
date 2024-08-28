@@ -46,7 +46,7 @@ class TapeWidget extends StatelessWidget {
         border: Border.all(
             color: (index == tape.pointer) ? Colors.green : Colors.black,
             width: (index == tape.pointer) ? 5 : 1),
-        color: Colors.blue,
+        color: Colors.cyan,
       ),
       margin: const EdgeInsets.all(0),
       width: cell_width,

@@ -50,33 +50,43 @@ class _TapeScreenState extends State<TapeScreen> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text("Tape Screen"), actions: <Widget>[
-          IconButton(
-            onPressed: (widget.automate)
-                ? null
-                : () {
-                    _showTimeInputSheet(context);
-                  },
-            icon: Icon(
-              Icons.schedule_outlined,
-              color: (widget.automate) ? Colors.grey : Colors.blue,
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            iconTheme: const IconThemeData(
+              color: Colors.cyan,
             ),
-          ),
-          const Gap(5),
-          IconButton(
-              onPressed: (widget.automate)
-                  ? null
-                  : () {
-                      setState(() {
-                        widget.machine
-                            .softReset(); //hard-reset on tape,soft-reset on machine state.
-                      });
-                    },
-              icon: Icon(
-                Icons.restart_alt_rounded,
-                color: (widget.automate) ? Colors.grey : Colors.blue,
-              )),
-        ]),
+            title: const Text(
+              "Tape Screen",
+              style: TextStyle(color: Colors.cyan),
+            ),
+            actions: <Widget>[
+              IconButton(
+                onPressed: (widget.automate)
+                    ? null
+                    : () {
+                        _showTimeInputSheet(context);
+                      },
+                icon: Icon(
+                  Icons.schedule_outlined,
+                  color: (widget.automate) ? Colors.grey : Colors.cyan,
+                ),
+              ),
+              const Gap(5),
+              IconButton(
+                  onPressed: (widget.automate)
+                      ? null
+                      : () {
+                          setState(() {
+                            widget.machine
+                                .softReset(); //hard-reset on tape,soft-reset on machine state.
+                          });
+                        },
+                  icon: Icon(
+                    Icons.restart_alt_rounded,
+                    color: (widget.automate) ? Colors.grey : Colors.cyan,
+                  )),
+            ]),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -98,25 +108,25 @@ class _TapeScreenState extends State<TapeScreen> {
             Text(
               "Current pointer: ${widget.machine.tape.pointer}",
               style: const TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold),
+                  color: Colors.cyan, fontWeight: FontWeight.bold),
             ),
             const Gap(2),
             Text(
               "Current m-config: ${widget.machine.current_config}",
               style: const TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold),
+                  color: Colors.cyan, fontWeight: FontWeight.bold),
             ),
             const Gap(2),
             Text(
               "Scanned Symbol: ${scannedSymbol(widget.machine.tape.tape[widget.machine.tape.pointer])}",
               style: const TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold),
+                  color: Colors.cyan, fontWeight: FontWeight.bold),
             ),
             const Gap(2),
             Text(
               "Iteration number: ${widget.machine.iterations}",
               style: const TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold),
+                  color: Colors.cyan, fontWeight: FontWeight.bold),
             ),
             const Gap(5),
             SizedBox(
@@ -127,16 +137,16 @@ class _TapeScreenState extends State<TapeScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: (widget._followHead) ? Colors.blue : Colors.black,
+                    color: (widget._followHead) ? Colors.cyan : Colors.white,
                   ),
                 ),
                 value: widget._followHead,
                 controlAffinity: ListTileControlAffinity.leading,
                 secondary: Icon(
                   Icons.follow_the_signs,
-                  color: (widget._followHead) ? Colors.blue : Colors.black,
+                  color: (widget._followHead) ? Colors.cyan : Colors.white,
                 ),
-                activeColor: Colors.blue,
+                activeColor: Colors.cyan,
                 onChanged: (bool? val) {
                   if (val == null) {
                     return;
@@ -158,16 +168,16 @@ class _TapeScreenState extends State<TapeScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: (widget.automate) ? Colors.blue : Colors.black,
+                    color: (widget.automate) ? Colors.cyan : Colors.white,
                   ),
                 ),
                 value: widget.automate,
                 controlAffinity: ListTileControlAffinity.leading,
                 secondary: Icon(
                   Icons.auto_mode_outlined,
-                  color: (widget.automate) ? Colors.blue : Colors.black,
+                  color: (widget.automate) ? Colors.cyan : Colors.white,
                 ),
-                activeColor: Colors.blue,
+                activeColor: Colors.cyan,
                 onChanged: (bool? value) {
                   if (value == null) {
                     return;
@@ -218,7 +228,7 @@ class _TapeScreenState extends State<TapeScreen> {
                     }
                   }
                 },
-          backgroundColor: (widget.automate) ? Colors.grey : Colors.blue,
+          backgroundColor: (widget.automate) ? Colors.grey : Colors.cyan,
           child: const Icon(Icons.play_arrow_outlined),
         ),
       ),
@@ -247,7 +257,7 @@ class _TapeScreenState extends State<TapeScreen> {
             child: DataTable(
               columnSpacing: (platform == Targets.ANDROID) ? 18 : 56,
               decoration: const BoxDecoration(
-                color: Colors.blue, // Set the background color here
+                color: Colors.cyan, // Set the background color here
               ),
               columns: const <DataColumn>[
                 DataColumn(
@@ -316,7 +326,7 @@ class _TapeScreenState extends State<TapeScreen> {
       dataRows.add(DataRow(
           cells: dataCells,
           color:
-              MaterialStateProperty.all(green ? Colors.green : Colors.blue)));
+              MaterialStateProperty.all(green ? Colors.green : Colors.cyan)));
       ++index;
     });
     return dataRows;
@@ -398,6 +408,7 @@ class _TapeScreenState extends State<TapeScreen> {
   void _showTimeInputSheet(BuildContext context) {
     showModalBottomSheet(
         context: context,
+        backgroundColor: Colors.cyan,
         useSafeArea: true,
         isScrollControlled: true,
         enableDrag: false,

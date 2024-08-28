@@ -38,12 +38,11 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 38,
                     fontWeight: FontWeight.bold,
-                    color: Colors.cyanAccent),
+                    color: Colors.cyan),
               ),
               const Gap(100),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.cyanAccent),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
                   onPressed: () {
                     TuringMachine machine = StandardMachines.emptyMachine();
                     Navigator.of(context)
@@ -64,8 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                   )),
               Gap((platform == Targets.ANDROID) ? 20 : 35),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.cyanAccent),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
                   onPressed: () {
                     TuringMachine machine = StandardMachines.defaultMachine();
                     Navigator.of(context)
@@ -86,8 +84,7 @@ class WelcomeScreen extends StatelessWidget {
                   )),
               Gap((platform == Targets.ANDROID) ? 20 : 35),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.cyanAccent),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
                   onPressed: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {

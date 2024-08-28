@@ -28,12 +28,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FLA Compilation',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'FLA Compilation Homepage'),
     );
   }
 }
@@ -52,13 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      body: Column(
-        children: [
-          Gap(MediaQuery.of(context).size.height * 0.4),
-          generateOkButton(0),
-          const Gap(10),
-          generateOkButton(1),
-        ],
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          children: [
+            Gap(MediaQuery.of(context).size.height * 0.4),
+            generateOkButton(0),
+            const Gap(15),
+            generateOkButton(1),
+          ],
+        ),
       ),
     ));
   }
@@ -70,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         name = "Cellular Automata";
         break;
       case 1:
-        name = "Turing Machine Simulator";
+        name = "Turing Machines";
         break;
       default:
         throw "Invalid index";
