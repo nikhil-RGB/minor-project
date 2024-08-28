@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,10 +58,27 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            Gap(MediaQuery.of(context).size.height * 0.4),
-            generateOkButton(0),
+            SizedBox(
+                height: MediaQuery.of(context).size.height * 0.3,
+                child: Image.asset("assets/images/FLA.png")),
+            const Gap(8),
+            Center(
+              child: Text(
+                "A compilation of Formal Language and Automata Theory Simulators to practice and understand these core concepts practically.",
+                style: GoogleFonts.sourceCodePro(
+                  color: Colors.cyan,
+                  fontSize: 16,
+                ),
+              ),
+            ),
             const Gap(15),
+            generateOkButton(0),
+            const Gap(17),
             generateOkButton(1),
+            const Gap(17),
+            generateOkButton(2),
+            const Gap(17),
+            generateOkButton(3),
           ],
         ),
       ),
@@ -75,10 +94,18 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         name = "Turing Machines";
         break;
+      case 2:
+        name = "DFA";
+        break;
+      case 3:
+        name = "Push Down Automata";
+        break;
       default:
         throw "Invalid index";
     }
+
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
       ),
@@ -92,8 +119,15 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             if (page_index == 0) {
               main0();
-            } else {
+            } else if (page_index == 1) {
               main1();
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Under development'),
+                  backgroundColor: Colors.cyan,
+                ),
+              );
             }
           },
           child: Padding(
