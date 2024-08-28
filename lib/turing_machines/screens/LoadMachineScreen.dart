@@ -26,8 +26,16 @@ class _LoadMachineScreenState extends State<LoadMachineScreen> {
     List<dynamic> names = machineBox.keys.toList();
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text("Load a saved machine"),
+          backgroundColor: Colors.transparent,
+          iconTheme: const IconThemeData(
+            color: Colors.cyan,
+          ),
+          title: const Text(
+            "Load a saved machine",
+            style: TextStyle(color: Colors.cyan),
+          ),
           actions: [
             IconButton(
               onPressed: () {
@@ -135,7 +143,7 @@ class _LoadMachineScreenState extends State<LoadMachineScreen> {
           },
           icon: const Icon(Icons.delete_forever),
         ),
-        tileColor: Colors.blue,
+        tileColor: Colors.cyan,
         title: Center(
             child: Text(
           name,
@@ -165,6 +173,7 @@ class _LoadMachineScreenState extends State<LoadMachineScreen> {
   void _showJsonInput(BuildContext context) {
     TextEditingController tc = TextEditingController();
     showModalBottomSheet(
+        backgroundColor: Colors.cyan,
         useSafeArea: true,
         isScrollControlled: true,
         context: context,

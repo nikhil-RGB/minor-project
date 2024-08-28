@@ -25,22 +25,27 @@ class WelcomeScreen extends StatelessWidget {
       child: SafeArea(
           child: Scaffold(
         backgroundColor: Colors.black,
-        // appBar: AppBar(
-        //   title: Text("Welcome!"),
-        // ),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.exit_to_app_outlined,
+              color: Colors.cyan,
+            ),
+          ),
+        ),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "Turing Machines",
-                style: TextStyle(
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.cyan),
-              ),
-              const Gap(100),
+              SizedBox(child: Image.asset("assets/images/TMG.png")),
+              const Gap(25),
+              Image.asset("assets/images/machine.png"),
+              const Gap(25),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
                   onPressed: () {
