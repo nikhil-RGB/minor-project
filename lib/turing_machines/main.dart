@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       title: 'Turing Machine Generator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyanAccent),
         useMaterial3: true,
         textTheme: GoogleFonts.sourceCodeProTextTheme(),
       ),

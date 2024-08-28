@@ -97,41 +97,53 @@ class _TableScreenState extends State<TableScreen> {
     }
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Text("TableScreen"),
+          backgroundColor: Colors.transparent,
+          title: const Text(
+            "TableScreen",
+            style: TextStyle(color: Colors.cyanAccent),
+          ),
           actions: [
             IconButton(
-                onPressed: () {
-                  _showInfoSheet();
-                },
-                icon: const Icon(Icons.info_outlined)),
+              onPressed: () {
+                _showInfoSheet();
+              },
+              icon: const Icon(Icons.info_outlined),
+              color: Colors.cyanAccent,
+            ),
             const Gap(5),
             IconButton(
-                onPressed: () {
-                  _showInputSheet(context);
-                },
-                icon: const Icon(Icons.save_as_outlined)),
+              onPressed: () {
+                _showInputSheet(context);
+              },
+              icon: const Icon(Icons.save_as_outlined),
+              color: Colors.cyanAccent,
+            ),
             const Gap(5),
             IconButton(
               onPressed: () {
                 _showJsonSheet();
               },
               icon: const Icon(Icons.share_outlined),
+              color: Colors.cyanAccent,
             ),
             const Gap(5),
             IconButton(
-                onPressed: () {
-                  setState(() {
-                    _input.clear();
-                    initialConfigValue = "NONE";
-                    deleteValue = "NONE";
-                    for (TextEditingController contr in _controllers) {
-                      contr.clear();
-                    }
-                    widget.machine.reset();
-                  });
-                },
-                icon: const Icon(Icons.restart_alt_rounded))
+              onPressed: () {
+                setState(() {
+                  _input.clear();
+                  initialConfigValue = "NONE";
+                  deleteValue = "NONE";
+                  for (TextEditingController contr in _controllers) {
+                    contr.clear();
+                  }
+                  widget.machine.reset();
+                });
+              },
+              icon: const Icon(Icons.restart_alt_rounded),
+              color: Colors.cyanAccent,
+            ),
           ],
         ),
         body: Center(
@@ -154,7 +166,8 @@ class _TableScreenState extends State<TableScreen> {
                           columnSpacing:
                               (platform == Targets.ANDROID) ? 18 : 56,
                           decoration: const BoxDecoration(
-                            color: Colors.blue, // Set the background color here
+                            color: Colors
+                                .cyanAccent, // Set the background color here
                           ),
                           columns: const <DataColumn>[
                             DataColumn(
@@ -207,7 +220,7 @@ class _TableScreenState extends State<TableScreen> {
                 const Gap(70),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.cyanAccent,
                   ),
                   onPressed: () {
                     if (initialConfigValue == "NONE") {
@@ -257,9 +270,17 @@ class _TableScreenState extends State<TableScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Select initial M-Config"),
+        const Text(
+          "Select initial M-Config",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         const Gap(13.0),
         DropdownButton(
+          dropdownColor: Colors.cyanAccent,
+          iconEnabledColor: Colors.cyanAccent,
+          style: const TextStyle(color: Colors.white),
           value: initialConfigValue,
           items: availableConfigs.map((config) {
             return DropdownMenuItem(
@@ -299,6 +320,9 @@ class _TableScreenState extends State<TableScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         DropdownButton(
+          dropdownColor: Colors.cyanAccent,
+          iconEnabledColor: Colors.cyanAccent,
+          style: const TextStyle(color: Colors.white),
           items: availableConfigs.map((config) {
             return DropdownMenuItem(
               value: config,
@@ -326,6 +350,7 @@ class _TableScreenState extends State<TableScreen> {
         ),
         const Gap(12.0),
         ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.cyanAccent),
             onPressed: (widget.machine.machine.isEmpty)
                 ? null
                 : () {
@@ -406,6 +431,9 @@ class _TableScreenState extends State<TableScreen> {
                 ),
                 const Gap(22),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.cyanAccent,
+                  ),
                   onPressed: () {
                     if ((_formKey.currentState!.validate())) {
                       Configuration config = Configuration(
@@ -436,7 +464,12 @@ class _TableScreenState extends State<TableScreen> {
                       );
                     }
                   },
-                  child: const Text("Add Row to table."),
+                  child: const Text(
+                    "Add Row to table.",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               ],
             )
@@ -523,6 +556,7 @@ class _TableScreenState extends State<TableScreen> {
       child: SizedBox(
         width: (index == 2 && platform != Targets.ANDROID) ? 400 : 250,
         child: TextFormField(
+          style: const TextStyle(color: Colors.white),
           validator: (value) {
             return validators[index](value);
           },
@@ -534,14 +568,14 @@ class _TableScreenState extends State<TableScreen> {
             alignLabelWithHint: true,
             labelStyle: const TextStyle(
                 fontSize: 15,
-                color: Colors.black38,
+                color: Colors.white,
                 decoration: TextDecoration.none,
                 fontWeight: FontWeight.w400),
             floatingLabelStyle: const TextStyle(color: Color(0xff23a590)),
-            hintStyle: const TextStyle(color: Colors.black38, fontSize: 14),
+            hintStyle: const TextStyle(color: Colors.white, fontSize: 14),
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(
-                  width: 3, color: Colors.black12), //<-- SEE HERE
+                  width: 3, color: Colors.white), //<-- SEE HERE
               borderRadius: BorderRadius.circular(50.0),
             ),
             errorBorder: OutlineInputBorder(
@@ -553,7 +587,8 @@ class _TableScreenState extends State<TableScreen> {
               borderRadius: BorderRadius.circular(50.0),
             ),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 3, color: Colors.blue.shade400),
+                borderSide:
+                    BorderSide(width: 3, color: Colors.cyanAccent.shade400),
                 borderRadius: BorderRadius.circular(50.0)),
           ),
         ),
@@ -568,16 +603,24 @@ class _TableScreenState extends State<TableScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text("Initialize Tape with String(Optional): "),
+              const Text(
+                "Initialize Tape with String(Optional): ",
+                style: TextStyle(color: Colors.white),
+              ),
               const Gap(10),
               SizedBox(
                 width: 250,
                 child: TextField(
                   controller: _input,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const Gap(10.0),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.cyanAccent),
                   onPressed: () {
                     printOntoTape();
                   },
@@ -588,20 +631,30 @@ class _TableScreenState extends State<TableScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text("Tape String(Optional): "),
+              const Text(
+                "Tape String(Optional): ",
+                style: TextStyle(color: Colors.white),
+              ),
               const Gap(8.0),
               SizedBox(
                 width: 140,
                 child: TextField(
                   controller: _input,
+                  style: const TextStyle(color: Colors.cyanAccent),
                 ),
               ),
               const Gap(9.5),
               ElevatedButton(
-                  onPressed: () {
-                    printOntoTape();
-                  },
-                  child: Text("Print onto Tape")),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.cyanAccent),
+                onPressed: () {
+                  printOntoTape();
+                },
+                child: const Text(
+                  "Print onto Tape",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
             ],
           );
   }
@@ -616,6 +669,7 @@ class _TableScreenState extends State<TableScreen> {
     BuildContext context,
   ) {
     showModalBottomSheet(
+        backgroundColor: Colors.cyanAccent,
         useSafeArea: true,
         isScrollControlled: true,
         context: context,
@@ -685,6 +739,7 @@ class _TableScreenState extends State<TableScreen> {
             TuringMachineModel.fromMachine(machine: widget.machine).toJson()));
 
     showModalBottomSheet(
+        backgroundColor: Colors.cyanAccent,
         useSafeArea: true,
         isScrollControlled: true,
         context: context,
@@ -726,6 +781,7 @@ class _TableScreenState extends State<TableScreen> {
         TextEditingController(text: widget.machine.description);
 
     showModalBottomSheet(
+        backgroundColor: Colors.cyanAccent,
         useSafeArea: true,
         isScrollControlled: true,
         context: context,
