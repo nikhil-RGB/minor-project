@@ -42,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              (platform == Targets.DESKTOP)
+              (platform != Targets.ANDROID)
                   ? SizedBox(
                       height: MediaQuery.of(context).size.height * 0.08,
                       width: MediaQuery.of(context).size.width * 0.6,
@@ -50,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                     )
                   : Image.asset("assets/images/TMG.png"),
               const Gap(25),
-              (platform == Targets.DESKTOP)
+              (platform != Targets.ANDROID)
                   ? SizedBox(
                       height: MediaQuery.of(context).size.height * 0.22,
                       width: MediaQuery.of(context).size.width * 0.28,
