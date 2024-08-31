@@ -42,9 +42,20 @@ class WelcomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(child: Image.asset("assets/images/TMG.png")),
+              (platform == Targets.DESKTOP)
+                  ? SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: Image.asset("assets/images/TMG.png"),
+                    )
+                  : Image.asset("assets/images/TMG.png"),
               const Gap(25),
-              Image.asset("assets/images/machine.png"),
+              (platform == Targets.DESKTOP)
+                  ? SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.22,
+                      width: MediaQuery.of(context).size.width * 0.28,
+                      child: Image.asset("assets/images/machine.png"))
+                  : Image.asset("assets/images/machine.png"),
               const Gap(25),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.cyan),
