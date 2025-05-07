@@ -27,7 +27,7 @@ class InfoPage extends StatelessWidget {
           style: TextStyle(color: Colors.cyan),
         ),
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 183, 186, 188),
       body: const Center(
         child: SingleChildScrollView(
           child: Padding(

@@ -26,7 +26,7 @@ class _LoadMachineScreenState extends State<LoadMachineScreen> {
     List<dynamic> names = machineBox.keys.toList();
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 183, 186, 188),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           iconTheme: const IconThemeData(

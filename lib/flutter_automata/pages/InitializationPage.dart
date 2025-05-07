@@ -46,7 +46,7 @@ class _InitializationPageState extends State<InitializationPage> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 183, 186, 188),
         // appBar: AppBar(
         //   title: const Text("Initialize your automaton"),
         //   backgroundColor: Colors.black,

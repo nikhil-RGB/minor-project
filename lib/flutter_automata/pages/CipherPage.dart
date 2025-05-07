@@ -35,7 +35,7 @@ class _CipherPageState extends State<CipherPage> {
     final isKeyBoardOpen = MediaQuery.of(context).viewInsets.bottom != 0;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 183, 186, 188),
         // resizeToAvoidBottomInset: false,
         extendBodyBehindAppBar: true,
 

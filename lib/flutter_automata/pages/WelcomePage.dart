@@ -52,7 +52,7 @@ class WelcomePage extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.black,
+          backgroundColor: const Color.fromARGB(255, 183, 186, 188),
           extendBodyBehindAppBar: true,
           appBar: AppBar(
             elevation: 0,

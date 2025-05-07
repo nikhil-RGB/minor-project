@@ -97,7 +97,7 @@ class _TableScreenState extends State<TableScreen> {
     }
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 183, 186, 188),
         appBar: AppBar(
           iconTheme: const IconThemeData(
             color: Colors.cyan,

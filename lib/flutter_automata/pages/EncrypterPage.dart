@@ -55,7 +55,7 @@ class _EncrypterPageState extends State<EncrypterPage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color.fromARGB(255, 183, 186, 188),
         // appBar: AppBar(
         //   backgroundColor: Colors.black,
         //   actions: [

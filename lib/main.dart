@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:minor_project/DFA.dart';
+import 'package:minor_project/PDA.dart';
 import 'package:minor_project/flutter_automata/main.dart';
 import 'package:minor_project/turing_machines/main.dart';
 import 'package:minor_project/turing_machines/models/Actions.dart';
@@ -52,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 183, 186, 188),
       body: Center(
         child: Column(
           children: [
@@ -97,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 3:
         name = "Push Down Automata";
+
         break;
       default:
         throw "Invalid index";
@@ -119,6 +122,12 @@ class _MyHomePageState extends State<MyHomePage> {
               main0();
             } else if (page_index == 1) {
               main1();
+            } else if (page_index == 2) {
+              main2();
+              //DFA
+            } else if (page_index == 3) {
+              main3();
+              //PDA
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
