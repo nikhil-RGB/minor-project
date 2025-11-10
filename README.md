@@ -9,8 +9,8 @@ This project aims to be a combination of simulators for multiple Formal Language
 
 Currently, work is complete for Turing Machine and Cellular automata simulators- a preview is available in the releases section.
 This project is aimed to be the minor project submission for:
-- Nikhil Narayanan (RA2111003011390)
-- Arnish Arvind Mishra (RA2111003011391)
+- Nikhil Narayanan
+- Arnish Arvind Mishra 
 
   <br>
 
